@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Memorycard />
+      <Memorycard name="Elephant" />
     </div>
   );
 }
