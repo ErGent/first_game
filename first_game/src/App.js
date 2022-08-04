@@ -1,10 +1,10 @@
-import Memorycard from "./Memorycard";
+import Memorydeck from "./Memorydeck";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Memorycard name="Elephant" />
+      <Memorydeck />
     </div>
   );
 }

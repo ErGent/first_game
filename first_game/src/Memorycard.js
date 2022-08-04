@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as constants from "./constants";
+import "./Memorycard.css";
 
 class Memorycard extends Component {
   render() {
@@ -10,8 +11,10 @@ class Memorycard extends Component {
     //}`; THIS IS THE SAME THING
     return (
       <div className="Memorycard">
-        <h1>{this.props.name}</h1>
-        <img src={imgName} alt={this.props.alt} />
+        <h1 className="Memorycard-title">{this.props.name}</h1>
+        <div className="Memorycard-image">
+          <img src={imgName} alt={this.props.alt} />
+        </div>
       </div>
     );
   }
