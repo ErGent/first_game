@@ -1,10 +1,10 @@
-import Memorydeck from "./Memorydeck";
+import Memorygame from "./Memorygame";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Memorydeck />
+      <Memorygame />
     </div>
   );
 }
