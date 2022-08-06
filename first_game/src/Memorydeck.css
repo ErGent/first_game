@@ -1,5 +1,11 @@
 .Memorydeck-cards {
+  width: 70rem;
+  height: 70rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  position: relative;
+  left: 17%;
+  flex-direction: row;
+  background-color: white;
 }

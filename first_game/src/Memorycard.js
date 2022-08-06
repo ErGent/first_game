@@ -11,9 +11,14 @@ class Memorycard extends Component {
     //}`; THIS IS THE SAME THING
     return (
       <div className="Memorycard">
-        <h1 className="Memorycard-title">{this.props.name}</h1>
-        <div className="Memorycard-image">
-          <img src={imgName} alt={this.props.alt} />
+        <div className="front">
+          <h1 className="Memorycard-title">{this.props.name}</h1>
+          <div className="Memorycard-image">
+            <img src={imgName} alt={this.props.alt} />
+          </div>
+        </div>
+        <div className="back">
+          <h1 className="Memorycard-title"> CLICK A CARD!</h1>
         </div>
       </div>
     );
