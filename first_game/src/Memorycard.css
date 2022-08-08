@@ -16,6 +16,6 @@
   height: 175px;
 }
 
-.Memorycard .back {
+.hidden {
   display: none;
 }
