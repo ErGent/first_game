@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Memorydeck from "./Memorydeck";
 
-class Memorygame extends Component {
+class Memoryrandom extends Component {
   static defaultProps = {
     animals: [
       { name: "Elephant" },
@@ -36,4 +36,4 @@ class Memorygame extends Component {
   }
 }
 
-export default Memorygame;
+export default Memoryrandom;

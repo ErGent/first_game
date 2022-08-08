@@ -1,10 +1,10 @@
-import Memorygame from "./Memorygame";
+import Memoryrandom from "./Memoryrandom";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Memorygame />
+      <Memoryrandom />
     </div>
   );
 }
