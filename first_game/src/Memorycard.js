@@ -22,17 +22,16 @@ class Memorycard extends Component {
   render() {
     let imgName =
       constants.imgDir + this.props.name.toLowerCase() + constants.imgExt;
-    let showFront = this.state["side"] === "front" ? "" : "hidden";
-    let showBack = this.state["side"] === "back" ? "" : "hidden";
+    let flipped = this.state["side"] === "front" ? "" : "flipped";
+    //let showFront = this.state["side"] === "front" ? "" : "hidden";
+    //let showBack = this.state["side"] === "back" ? "" : "hidden";
     return (
-      <div className="Memorycard" onClick={this.changeSide}>
-        <div className={"front " + showFront}>
+      <div className={"Memorycard " + flipped} onClick={this.changeSide}>
+        <div className={"front"}>
           <h1 className="Memorycard-title">{this.props.name}</h1>
-          <div className="Memorycard-image">
-            <img src={imgName} alt={this.props.alt} />
-          </div>
+          <img src={imgName} alt={this.props.alt} />
         </div>
-        <div className={"back " + showBack}>
+        <div className={"back"}>
           <h1 className="Memorycard-title"> CLICK A CARD!</h1>
         </div>
       </div>
