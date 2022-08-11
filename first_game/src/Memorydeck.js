@@ -4,20 +4,7 @@ import "./Memorydeck.css";
 
 class Memorydeck extends Component {
   static defaultProps = {
-    animals: [
-      { name: "Elephant" },
-      { name: "Elephant" },
-      { name: "Bee" },
-      { name: "Bee" },
-      { name: "Esme" },
-      { name: "Esme" },
-      { name: "Octopus" },
-      { name: "Octopus" },
-      { name: "Sea Lion" },
-      { name: "Sea Lion" },
-      { name: "Wasp" },
-      { name: "Wasp" },
-    ],
+    animals: [],
   };
   render() {
     return (

@@ -18,19 +18,24 @@ class Memoryrandom extends Component {
       { name: "Wasp" },
     ],
   };
-  render() {
-    let randomize = [];
-    let cards = [...this.props.animals];
 
+  randomize() {
+    let cards = [...this.props.animals];
+    let randomize = [];
     while (cards.length > 0) {
       let randIdx = Math.floor(Math.random() * cards.length);
       let randAnimals = cards.splice(randIdx, 1)[0];
       randomize.push(randAnimals);
     }
+    return randomize;
+  }
+
+  render() {
     return (
       <div>
         <h1> MEMORY GAME!</h1>
-        <Memorydeck animals={randomize} />
+        <button onClick={() => this.randomize()}> New Game </button>
+        <Memorydeck animals={this.randomize()} />
       </div>
     );
   }
