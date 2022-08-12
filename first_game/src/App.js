@@ -5,7 +5,22 @@ import Memorygame from "./Memorygame";
 function App() {
   return (
     <div className="App">
-      <Memoryrandom />
+      <Memoryrandom
+        animals={[
+          { name: "Elephant" },
+          { name: "Elephant" },
+          { name: "Bee" },
+          { name: "Bee" },
+          { name: "Esme" },
+          { name: "Esme" },
+          { name: "Octopus" },
+          { name: "Octopus" },
+          { name: "Sea Lion" },
+          { name: "Sea Lion" },
+          { name: "Wasp" },
+          { name: "Wasp" },
+        ]}
+      />
       <div>
         <h1>
           <Memorygame />
