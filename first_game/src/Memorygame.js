@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Memoryrandom from "./Memoryrandom";
+import Memorycard from "./Memorycard";
+import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
 class Memorygame extends Component {
   constructor(props) {
     super(props);
+    this.cardOnClick = this.cardOnClick.bind(this);
     this.state = {
       score: 0,
       gameOver: false,
@@ -23,13 +26,25 @@ class Memorygame extends Component {
     };
   }
 
-  cardOnClick() {
-    console.log("called flip card function");
+  cardOnClick(id) {
+    let newSide = "back";
+    if (this.state.animals[id]["side"] === "back") {
+      //make cardOnclickwork for array instead of single card
+      newSide = "front";
+    }
+    let newAnimals = [...this.state.animals];
+    let newAnimal = { ...newAnimals[id] };
+    newAnimal.side = newSide;
+    newAnimals[id] = newAnimal;
+    this.setState({ animals: newAnimals });
+    console.log("called flip card function for card ", id);
+    console.log(this.state.animals[id]["side"], "OLD SIDE");
   }
 
   render() {
+    console.log(this.state.animals);
     return (
-      <div className="App">
+      <div className="Memorygame">
         <h1> Your Score Is: {this.state.score} </h1>
         <Memoryrandom
           animals={this.state.animals}

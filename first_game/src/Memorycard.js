@@ -5,27 +5,20 @@ import "./Memorycard.css";
 class Memorycard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      side: "back",
-    };
-    this.changeSide = this.changeSide.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
-  changeSide() {
-    let newSide = "back";
-    if (this.state["side"] === "back") {
-      newSide = "front";
-    }
-    this.setState({ side: newSide });
+  onClick() {
+    this.props.cardOnClick(this.props.id);
   }
 
   render() {
     let imgName =
       constants.imgDir + this.props.name.toLowerCase() + constants.imgExt;
-    let flipped = this.state["side"] === "front" ? "" : "flipped";
+    let flipped = this.props["side"] === "front" ? "" : "flipped";
     console.log(this.props);
     return (
-      <div className={"Memorycard " + flipped} onClick={this.changeSide}>
+      <div className={"Memorycard " + flipped} onClick={this.onClick}>
         <div className={"front"}>
           <h1 className="Memorycard-title">{this.props.name}</h1>
           <img src={imgName} alt={this.props.alt} />

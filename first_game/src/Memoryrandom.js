@@ -21,10 +21,10 @@ class Memoryrandom extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Memoryrandom">
         <button onClick={this.randomize}> New Game </button>
         <Memorydeck
-          animals={this.state.animals}
+          animals={this.props.animals}
           cardOnClick={this.props.cardOnClick}
         />
       </div>

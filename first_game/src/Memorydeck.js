@@ -4,8 +4,8 @@ import "./Memorydeck.css";
 
 class Memorydeck extends Component {
   render() {
-    console.log("deck", this.props.animals);
     let id = 0;
+
     return (
       <div className="Memorydeck">
         <div className="Memorydeck-cards">
@@ -14,6 +14,7 @@ class Memorydeck extends Component {
               id={id++}
               name={a.name}
               cardOnClick={this.props.cardOnClick}
+              side={a.side}
             />
           ))}
         </div>
