@@ -41,6 +41,18 @@ class Memorygame extends Component {
     console.log(this.state.animals[id]["side"], "OLD SIDE");
   }
 
+  randomizeOnClick = () => {
+    let cards = [...this.state.animals];
+
+    let randomized = [];
+    while (cards.length > 0) {
+      let randIdx = Math.floor(Math.random() * cards.length);
+      let randAnimals = cards.splice(randIdx, 1)[0];
+      randomized.push(randAnimals);
+    }
+    this.setState({ animals: randomized });
+  };
+
   render() {
     console.log(this.state.animals);
     return (
@@ -49,6 +61,7 @@ class Memorygame extends Component {
         <Memoryrandom
           animals={this.state.animals}
           cardOnClick={this.cardOnClick}
+          randomizeOnClick={this.randomizeOnClick}
         />
       </div>
     );
