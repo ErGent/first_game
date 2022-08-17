@@ -23,6 +23,7 @@ class Memorycard extends Component {
     let imgName =
       constants.imgDir + this.props.name.toLowerCase() + constants.imgExt;
     let flipped = this.state["side"] === "front" ? "" : "flipped";
+    console.log(this.props);
     return (
       <div className={"Memorycard " + flipped} onClick={this.changeSide}>
         <div className={"front"}>

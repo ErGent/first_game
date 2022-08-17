@@ -5,11 +5,16 @@ import "./Memorydeck.css";
 class Memorydeck extends Component {
   render() {
     console.log("deck", this.props.animals);
+    let id = 0;
     return (
       <div className="Memorydeck">
         <div className="Memorydeck-cards">
           {this.props.animals.map((a) => (
-            <Memorycard name={a.name} />
+            <Memorycard
+              id={id++}
+              name={a.name}
+              cardOnClick={this.props.cardOnClick}
+            />
           ))}
         </div>
       </div>

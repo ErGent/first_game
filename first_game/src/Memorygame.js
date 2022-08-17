@@ -7,26 +7,34 @@ class Memorygame extends Component {
       score: 0,
       gameOver: false,
       animals: [
-        { name: "Elephant" },
-        { name: "Elephant" },
-        { name: "Bee" },
-        { name: "Bee" },
-        { name: "Esme" },
-        { name: "Esme" },
-        { name: "Octopus" },
-        { name: "Octopus" },
-        { name: "Sea Lion" },
-        { name: "Sea Lion" },
-        { name: "Wasp" },
-        { name: "Wasp" },
+        { name: "Elephant", side: "back" },
+        { name: "Elephant", side: "back" },
+        { name: "Bee", side: "back" },
+        { name: "Bee", side: "back" },
+        { name: "Esme", side: "back" },
+        { name: "Esme", side: "back" },
+        { name: "Octopus", side: "back" },
+        { name: "Octopus", side: "back" },
+        { name: "Sea Lion", side: "back" },
+        { name: "Sea Lion", side: "back" },
+        { name: "Wasp", side: "back" },
+        { name: "Wasp", side: "back" },
       ],
     };
   }
+
+  cardOnClick() {
+    console.log("called flip card function");
+  }
+
   render() {
     return (
       <div className="App">
         <h1> Your Score Is: {this.state.score} </h1>
-        <Memoryrandom animals={this.state.animals} />
+        <Memoryrandom
+          animals={this.state.animals}
+          cardOnClick={this.cardOnClick}
+        />
       </div>
     );
   }

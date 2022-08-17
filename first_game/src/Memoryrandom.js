@@ -20,11 +20,13 @@ class Memoryrandom extends Component {
   }
 
   render() {
-    console.log("randomizer", this.state.animals);
     return (
       <div>
         <button onClick={this.randomize}> New Game </button>
-        <Memorydeck animals={this.state.animals} />
+        <Memorydeck
+          animals={this.state.animals}
+          cardOnClick={this.props.cardOnClick}
+        />
       </div>
     );
   }
