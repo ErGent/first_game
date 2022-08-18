@@ -32,11 +32,11 @@ class Memorygame extends Component {
       newSide = "front";
     }
 
-    let newAnimals = [...this.state.cards];
-    let newAnimal = { ...newAnimals[id] };
-    newAnimal.side = newSide;
-    newAnimals[id] = newAnimal;
-    this.setState({ cards: newAnimals });
+    let newCards = [...this.state.cards];
+    let newCard = { ...newCards[id] };
+    newCard.side = newSide;
+    newCards[id] = newCard;
+    this.setState({ cards: newCards });
     console.log("called flip card function for card ", id);
     console.log(this.state.cards[id]["side"], "OLD SIDE");
   };
@@ -47,8 +47,8 @@ class Memorygame extends Component {
     let randomized = [];
     while (cards.length > 0) {
       let randIdx = Math.floor(Math.random() * cards.length);
-      let randAnimals = cards.splice(randIdx, 1)[0];
-      randomized.push(randAnimals);
+      let randCards = cards.splice(randIdx, 1)[0];
+      randomized.push(randCards);
     }
     this.setState({ cards: randomized });
   };
