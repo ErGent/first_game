@@ -37,9 +37,15 @@ class Memorygame extends Component {
     newCard.side = newSide;
     newCards[id] = newCard;
     this.setState({ cards: newCards });
-    console.log("called flip card function for card ", id);
-    console.log(this.state.cards[id]["side"], "OLD SIDE");
   };
+
+  //compare = () => {
+  // let compareCards = [];
+  //let cardOne = (first clicked card)
+  //let cardTwo = (second clicked card)
+  //if cardOne !== cardTwo
+  //this will hold compare logic if card 1 === card 2, stay up, if not, disable, set timer, reset
+  //}
 
   randomizeOnClick = () => {
     let cards = [...this.state.cards];
