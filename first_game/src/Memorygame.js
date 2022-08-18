@@ -5,7 +5,7 @@ import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
 class Memorygame extends Component {
   constructor(props) {
     super(props);
-    this.cardOnClick = this.cardOnClick.bind(this);
+
     this.state = {
       score: 0,
       gameOver: false,
@@ -26,12 +26,12 @@ class Memorygame extends Component {
     };
   }
 
-  cardOnClick(id) {
+  cardOnClick = (id) => {
     let newSide = "back";
     if (this.state.animals[id]["side"] === "back") {
-      //make cardOnclickwork for array instead of single card
       newSide = "front";
     }
+
     let newAnimals = [...this.state.animals];
     let newAnimal = { ...newAnimals[id] };
     newAnimal.side = newSide;
@@ -39,7 +39,7 @@ class Memorygame extends Component {
     this.setState({ animals: newAnimals });
     console.log("called flip card function for card ", id);
     console.log(this.state.animals[id]["side"], "OLD SIDE");
-  }
+  };
 
   randomizeOnClick = () => {
     let cards = [...this.state.animals];

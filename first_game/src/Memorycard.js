@@ -3,14 +3,9 @@ import * as constants from "./constants";
 import "./Memorycard.css";
 
 class Memorycard extends Component {
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick() {
+  onClick = () => {
     this.props.cardOnClick(this.props.id);
-  }
+  };
 
   render() {
     let imgName =
