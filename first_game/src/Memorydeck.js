@@ -9,7 +9,7 @@ class Memorydeck extends Component {
     return (
       <div className="Memorydeck">
         <div className="Memorydeck-cards">
-          {this.props.animals.map((a) => (
+          {this.props.cards.map((a) => (
             <Memorycard
               id={id++}
               name={a.name}

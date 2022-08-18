@@ -9,7 +9,7 @@ class Memorygame extends Component {
     this.state = {
       score: 0,
       gameOver: false,
-      animals: [
+      cards: [
         { name: "Elephant", side: "back" },
         { name: "Elephant", side: "back" },
         { name: "Bee", side: "back" },
@@ -28,21 +28,21 @@ class Memorygame extends Component {
 
   cardOnClick = (id) => {
     let newSide = "back";
-    if (this.state.animals[id]["side"] === "back") {
+    if (this.state.cards[id]["side"] === "back") {
       newSide = "front";
     }
 
-    let newAnimals = [...this.state.animals];
+    let newAnimals = [...this.state.cards];
     let newAnimal = { ...newAnimals[id] };
     newAnimal.side = newSide;
     newAnimals[id] = newAnimal;
-    this.setState({ animals: newAnimals });
+    this.setState({ cards: newAnimals });
     console.log("called flip card function for card ", id);
-    console.log(this.state.animals[id]["side"], "OLD SIDE");
+    console.log(this.state.cards[id]["side"], "OLD SIDE");
   };
 
   randomizeOnClick = () => {
-    let cards = [...this.state.animals];
+    let cards = [...this.state.cards];
 
     let randomized = [];
     while (cards.length > 0) {
@@ -50,16 +50,16 @@ class Memorygame extends Component {
       let randAnimals = cards.splice(randIdx, 1)[0];
       randomized.push(randAnimals);
     }
-    this.setState({ animals: randomized });
+    this.setState({ cards: randomized });
   };
 
   render() {
-    console.log(this.state.animals);
+    console.log(this.state.cards);
     return (
       <div className="Memorygame">
         <h1> Your Score Is: {this.state.score} </h1>
         <Memoryrandom
-          animals={this.state.animals}
+          cards={this.state.cards}
           cardOnClick={this.cardOnClick}
           randomizeOnClick={this.randomizeOnClick}
         />

@@ -3,7 +3,7 @@ import Memorydeck from "./Memorydeck";
 
 class Memoryrandom extends Component {
   onClick = () => {
-    this.props.randomizeOnClick(this.props.animals);
+    this.props.randomizeOnClick(this.props.cards);
   };
 
   render() {
@@ -11,7 +11,7 @@ class Memoryrandom extends Component {
       <div className="Memoryrandom">
         <button onClick={this.onClick}> New Game </button>
         <Memorydeck
-          animals={this.props.animals}
+          cards={this.props.cards}
           cardOnClick={this.props.cardOnClick}
         />
       </div>
