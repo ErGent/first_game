@@ -9,6 +9,7 @@ class Memorygame extends Component {
     this.state = {
       score: 0,
       gameOver: false,
+      cardClicked: false,
       cards: [
         { name: "Elephant", side: "back" },
         { name: "Elephant", side: "back" },
@@ -26,7 +27,7 @@ class Memorygame extends Component {
     };
   }
 
-  cardOnClick = (id) => {
+  flipCard = (id) => {
     let newSide = "back";
     if (this.state.cards[id]["side"] === "back") {
       newSide = "front";
@@ -39,9 +40,10 @@ class Memorygame extends Component {
     this.setState({ cards: newCards });
   };
 
-  //compare = () => {
-  // let compareCards = [];
-  //let cardOne = (first clicked card)
+  cardOnClick = (id) => {
+    this.flipCard(id);
+  };
+
   //let cardTwo = (second clicked card)
   //if cardOne !== cardTwo
   //this will hold compare logic if card 1 === card 2, stay up, if not, disable, set timer, reset
