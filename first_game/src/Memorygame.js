@@ -55,8 +55,9 @@ class Memorygame extends Component {
     let randomized = [];
     while (cards.length > 0) {
       let randIdx = Math.floor(Math.random() * cards.length);
-      let randCards = cards.splice(randIdx, 1)[0];
-      randomized.push(randCards);
+      let randCard = cards.splice(randIdx, 1)[0];
+      randCard.side = "back";
+      randomized.push(randCard);
     }
     this.setState({ cards: randomized });
   };
