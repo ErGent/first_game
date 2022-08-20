@@ -4,14 +4,12 @@ import "./Memorydeck.css";
 
 class Memorydeck extends Component {
   render() {
-    let id = 0;
-
     return (
       <div className="Memorydeck">
         <div className="Memorydeck-cards">
           {this.props.cards.map((a) => (
             <Memorycard
-              id={id++}
+              id={a.id}
               name={a.name}
               cardOnClick={this.props.cardOnClick}
               side={a.side}
