@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import Memoryrandom from "./Memoryrandom";
 import Memorycard from "./Memorycard";
 import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 class Memorygame extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      cardsDisabled: false,
       tries: 0,
       score: 0,
       gameOver: false,
@@ -51,6 +53,10 @@ class Memorygame extends Component {
   };
 
   cardOnClick = (id) => {
+    if (this.state.cardsDisabled) {
+      return;
+    }
+
     console.log(this.state);
     if (this.state.cardClicked === true) {
       if (this.state.cardOne.name === this.state.cards[id].name) {
@@ -64,10 +70,11 @@ class Memorygame extends Component {
         });
       } else {
         this.setState({
+          cardsDisabled: true,
           cardTwo: this.state.cards[id],
           tries: this.state.tries + 1,
         });
-        setTimeout(this.resetCardsOnMismatch, 1000);
+        setTimeout(this.resetCardsOnMismatch, 1500);
       }
     } else {
       this.setState({ cardOne: this.state.cards[id], cardClicked: true });
@@ -83,6 +90,7 @@ class Memorygame extends Component {
       cardOne: null,
       cardTwo: null,
       cardClicked: false,
+      cardsDisabled: false,
     });
   };
 
