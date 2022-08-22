@@ -7,6 +7,7 @@ class Memorygame extends Component {
     super(props);
 
     this.state = {
+      tries: 0,
       score: 0,
       gameOver: false,
       cardClicked: false,
@@ -54,9 +55,18 @@ class Memorygame extends Component {
     if (this.state.cardClicked === true) {
       if (this.state.cardOne.name === this.state.cards[id].name) {
         // TODO set score
-        this.setState({ cardOne: null, cardTwo: null, cardClicked: false });
+        this.setState({
+          cardOne: null,
+          cardTwo: null,
+          cardClicked: false,
+          score: this.state.score + 1,
+          tries: this.state.tries + 1,
+        });
       } else {
-        this.setState({ cardTwo: this.state.cards[id] });
+        this.setState({
+          cardTwo: this.state.cards[id],
+          tries: this.state.tries + 1,
+        });
         setTimeout(this.resetCardsOnMismatch, 1000);
       }
     } else {
@@ -69,7 +79,11 @@ class Memorygame extends Component {
   resetCardsOnMismatch = () => {
     console.log(this.state);
     this.flipCards([this.state.cardOne.id, this.state.cardTwo.id]);
-    this.setState({ cardOne: null, cardTwo: null, cardClicked: false });
+    this.setState({
+      cardOne: null,
+      cardTwo: null,
+      cardClicked: false,
+    });
   };
 
   randomizeOnClick = () => {
@@ -88,6 +102,8 @@ class Memorygame extends Component {
       cardOne: null,
       cardTwo: null,
       cardClicked: false,
+      tries: 0,
+      score: 0,
     });
   };
 
@@ -95,6 +111,7 @@ class Memorygame extends Component {
     return (
       <div className="Memorygame">
         <h1> Your Score Is: {this.state.score} </h1>
+        <h2>Number of Tries: {this.state.tries}</h2>
         <Memoryrandom
           cards={this.state.cards}
           cardOnClick={this.cardOnClick}
