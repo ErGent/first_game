@@ -8,6 +8,7 @@ class Memorygame extends Component {
 
     this.state = {
       cardsDisabled: false,
+
       tries: 0,
       score: 0,
       gameOver: false,
@@ -55,12 +56,13 @@ class Memorygame extends Component {
     if (this.state.cardsDisabled) {
       return;
     }
+
     if (this.state.cardClicked === true) {
-      if (
-        this.state.cardOne.name === this.state.cards[id].name &&
-        this.state.cardOne.id !== this.state.cards[id].id
-      ) {
-        // TODO set score
+      if (this.state.cardOne.name === this.state.cards[id].name) {
+        if (this.state.cardOne.id === this.state.cards[id].id) {
+          return;
+        }
+
         this.setState({
           cardOne: null,
           cardTwo: null,
