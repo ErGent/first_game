@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Memoryrandom from "./Memoryrandom";
 import Memorycard from "./Memorycard";
-import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
+
 class Memorygame extends Component {
   constructor(props) {
     super(props);
@@ -56,10 +55,11 @@ class Memorygame extends Component {
     if (this.state.cardsDisabled) {
       return;
     }
-
-    console.log(this.state);
     if (this.state.cardClicked === true) {
-      if (this.state.cardOne.name === this.state.cards[id].name) {
+      if (
+        this.state.cardOne.name === this.state.cards[id].name &&
+        this.state.cardOne.id !== this.state.cards[id].id
+      ) {
         // TODO set score
         this.setState({
           cardOne: null,
@@ -77,7 +77,10 @@ class Memorygame extends Component {
         setTimeout(this.resetCardsOnMismatch, 1500);
       }
     } else {
-      this.setState({ cardOne: this.state.cards[id], cardClicked: true });
+      this.setState({
+        cardOne: this.state.cards[id],
+        cardClicked: true,
+      });
     }
 
     this.flipCards([id]);
@@ -120,6 +123,7 @@ class Memorygame extends Component {
       <div className="Memorygame">
         <h1> Your Score Is: {this.state.score} </h1>
         <h2>Number of Tries: {this.state.tries}</h2>
+
         <Memoryrandom
           cards={this.state.cards}
           cardOnClick={this.cardOnClick}
