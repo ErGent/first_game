@@ -19,7 +19,7 @@ class Memorycard extends Component {
           <img src={imgName} alt={this.props.alt} />
         </div>
         <div className={"back"}>
-          <h1 className="Memorycard-title"> CLICK A CARD!</h1>
+          <h1 className="Memorycard-title">{this.props.cardBack}</h1>
         </div>
       </div>
     );

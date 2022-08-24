@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Memoryrandom from "./Memoryrandom";
+import "./Memorygame.css";
 import Memorycard from "./Memorycard";
 
 class Memorygame extends Component {
@@ -8,7 +9,7 @@ class Memorygame extends Component {
 
     this.state = {
       cardsDisabled: false,
-
+      cardBack: "Click a Card!",
       tries: 0,
       score: 0,
       gameOver: false,
@@ -75,6 +76,7 @@ class Memorygame extends Component {
           cardsDisabled: true,
           cardTwo: this.state.cards[id],
           tries: this.state.tries + 1,
+          cardBack: "Comparing...",
         });
         setTimeout(this.resetCardsOnMismatch, 1500);
       }
@@ -96,6 +98,7 @@ class Memorygame extends Component {
       cardTwo: null,
       cardClicked: false,
       cardsDisabled: false,
+      cardBack: "Click a Card!",
     });
   };
 
@@ -125,8 +128,8 @@ class Memorygame extends Component {
       <div className="Memorygame">
         <h1> Your Score Is: {this.state.score} </h1>
         <h2>Number of Tries: {this.state.tries}</h2>
-
         <Memoryrandom
+          cardBack={this.state.cardBack}
           cards={this.state.cards}
           cardOnClick={this.cardOnClick}
           randomizeOnClick={this.randomizeOnClick}

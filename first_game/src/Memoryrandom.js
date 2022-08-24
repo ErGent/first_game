@@ -13,6 +13,7 @@ class Memoryrandom extends Component {
         <Memorydeck
           cards={this.props.cards}
           cardOnClick={this.props.cardOnClick}
+          cardBack={this.props.cardBack}
         />
       </div>
     );

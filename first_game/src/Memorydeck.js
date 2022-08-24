@@ -13,6 +13,7 @@ class Memorydeck extends Component {
               name={a.name}
               cardOnClick={this.props.cardOnClick}
               side={a.side}
+              cardBack={this.props.cardBack}
             />
           ))}
         </div>
