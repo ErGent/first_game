@@ -1,7 +1,7 @@
 {
   "name": "first_game",
   "version": "0.1.0",
-  "homepage": "https://ErGent.github.io",
+  "homepage": "https://ErGent.github.io/first_game",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
